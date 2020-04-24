@@ -1,4 +1,4 @@
-module github.com/elliottsam/vault-config
+module github.com/z0w13/vault-config
 
 go 1.14
 
