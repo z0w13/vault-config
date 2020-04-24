@@ -14,8 +14,23 @@
 
 package main
 
-import "github.com/elliottsam/vault-config/cmd"
+import (
+	"fmt"
 
-func main() {
-	cmd.Execute()
+	"github.com/elliottsam/vault-config/version"
+	"github.com/spf13/cobra"
+)
+
+// versionCmd represents the version command
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Vault config version",
+	Long:  `Print version of the vault-config executable`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("vault-config v%s\n", version.Version)
+	},
+}
+
+func init() {
+	RootCmd.AddCommand(versionCmd)
 }
